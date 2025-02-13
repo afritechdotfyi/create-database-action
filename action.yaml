@@ -38,6 +38,8 @@ runs:
       if: inputs.group_name == ''
       shell: bash
       run: |
+        # echo "inputs: ${{ inputs }}"
+        
         RESPONSE=$(curl -s -f \
           -H "Authorization: Bearer ${{ inputs.api_token }}" \
           "https://api.turso.tech/v1/organizations/${{ inputs.organization_name }}/databases/${{ inputs.existing_database_name }}")

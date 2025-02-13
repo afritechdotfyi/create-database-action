@@ -72,8 +72,9 @@ runs:
 
         # log response
         echo $RESPONSE
-        
-        if [ $? -ne 0 ]; then
+
+        # if no response exit
+        if [ -z "$RESPONSE" ]; then
           echo "Could not create database"
           exit 1
         fi

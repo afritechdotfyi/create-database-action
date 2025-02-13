@@ -70,6 +70,9 @@ runs:
           -d '{"name": "${{ inputs.new_database_name }}", "group": "'"$GROUP_TO_USE"'", "seed": {"type": "database", "name": "${{ inputs.existing_database_name }}"} }' \
           "https://api.turso.tech/v1/organizations/${{ inputs.organization_name }}/databases")
 
+        # log response
+        echo $RESPONSE
+        
         if [ $? -ne 0 ]; then
           echo "Could not create database"
           exit 1
